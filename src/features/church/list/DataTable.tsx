@@ -3,14 +3,15 @@ import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { flexRender, getCoreRowModel, getPaginationRowModel, PaginationState, useReactTable } from '@tanstack/react-table';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { useMemo } from 'react';
+import { useNavigate } from 'react-router';
 
 import { fetchPokemons } from '@/apis/pokemons.ts';
 import { Button } from '@/components/ui/button';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+
 import useChurchFilters from './useChurchFilters';
-import { useNavigate } from 'react-router';
 
 const DataTable = () => {
 	const { limit, offset, currentPage, pageSize, changePagination } = useChurchFilters();

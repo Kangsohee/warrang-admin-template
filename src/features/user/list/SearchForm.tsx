@@ -1,5 +1,6 @@
 import { Input } from '@/components/ui/input.tsx';
 import { cn } from '@/lib/utils';
+
 import useUserFilters from './useUserFilters';
 
 const SearchForm = () => {

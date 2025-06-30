@@ -1,9 +1,10 @@
+import { useEffect } from 'react';
+
 import { Separator } from '@/components/ui/separator';
 import { DataTable, SearchForm } from '@/features/square/freeMarket/list';
 import Head from '@/layouts/Head.tsx';
 import PageContainer from '@/layouts/PageContainer.tsx';
 import { useBreadcrumbStore } from '@/stores/breadcrumb';
-import { useEffect } from 'react';
 
 export const Component = () => {
 	const { updateHistories } = useBreadcrumbStore();

@@ -1,6 +1,7 @@
+import { useEffect } from 'react';
+
 import DetailChurch from '@/features/church/form/DetailChurch';
 import { useBreadcrumbStore } from '@/stores/breadcrumb';
-import { useEffect } from 'react';
 
 export function Component() {
 	const { updateHistories } = useBreadcrumbStore();

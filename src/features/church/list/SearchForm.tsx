@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router';
+
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input.tsx';
 import { cn } from '@/lib/utils';
+
 import useChurchFilters from './useChurchFilters';
-import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router';
 
 const SearchForm = () => {
 	const { tempSearchQuery, changeTempQuery } = useChurchFilters();

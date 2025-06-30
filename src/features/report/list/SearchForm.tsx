@@ -1,7 +1,8 @@
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input.tsx';
 import { cn } from '@/lib/utils';
+
 import useReportFilters from './useReportFilters';
-import { Button } from '@/components/ui/button';
 
 const SearchForm = () => {
 	const { tempSearchQuery, changeTempQuery } = useReportFilters();
