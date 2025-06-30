@@ -12,7 +12,6 @@ const useChurchFilters = () => {
 		limit: '20',
 		offset: '0',
 	});
-	console.log('searchParams> ', searchParams.get('title'))
 	const [tempSearchQuery, setTempSearchQuery] = useState({
 		title: searchParams.get('title') || '',
 	});

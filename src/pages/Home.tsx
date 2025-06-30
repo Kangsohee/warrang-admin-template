@@ -2,9 +2,16 @@ import dayjs from 'dayjs';
 import { useEffect } from 'react';
 
 import { useToast } from '@/hooks/use-toast';
+import { useBreadcrumbStore } from '@/stores/breadcrumb';
 
 const Home = () => {
 	const { toast } = useToast();
+
+	const { updateHistories } = useBreadcrumbStore();
+
+	useEffect(() => {
+		updateHistories([]);
+	}, [updateHistories]);
 
 	useEffect(() => {
 		toast({ title: 'Hello Sohee!', description: dayjs().toString() });

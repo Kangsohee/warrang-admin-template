@@ -10,17 +10,17 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import useChurchFilters from './useChurchFilters';
+import { useNavigate } from 'react-router';
 
 const DataTable = () => {
 	const { limit, offset, currentPage, pageSize, changePagination } = useChurchFilters();
-
+	const navigate = useNavigate();
 	const { isPending, data } = useQuery({
 		queryKey: ['chs', limit, offset],
 		queryFn: () => fetchPokemons({ limit, offset }),
 		placeholderData: keepPreviousData,
 	});
 
-	console.log('data> ', data);
 	const paginationState = {
 		pageIndex: currentPage - 1, // zero-based index for React Table
 		pageSize: pageSize,
@@ -77,6 +77,11 @@ const DataTable = () => {
 		return Array(pageSize).fill({});
 	}, [pageSize]);
 
+	// row 클릭 시 navigate
+	const handleRowClick = (id: string | number) => {
+		navigate(`/churches/${id}`);
+	};
+
 	return (
 		<div className='flex flex-1 flex-col space-y-4'>
 			<div className='relative flex flex-1'>
@@ -108,7 +113,12 @@ const DataTable = () => {
 								)}
 								{table.getRowModel().rows?.length ? (
 									table.getRowModel().rows.map((row) => (
-										<TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
+										<TableRow
+											key={row.id}
+											data-state={row.getIsSelected() && 'selected'}
+											onClick={() => handleRowClick(row.original.id)}
+											className='cursor-pointer hover:bg-gray-100'
+										>
 											{row.getVisibleCells().map((cell) => (
 												<TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
 											))}

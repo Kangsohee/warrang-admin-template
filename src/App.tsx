@@ -27,54 +27,53 @@ const router = createBrowserRouter([
 				path: 'churches/create',
 				async lazy() {
 					return await import('./pages/churches/create');
-
 				},
 			},
 			{
 				path: 'crews',
 				async lazy() {
 					// Multiple routes in lazy file
-					const { loader, Component } = await import('./pages/crews');
-					return { loader, Component };
+					const { Component } = await import('./pages/crews');
+					return { Component };
 				},
 			},
 			{
 				path: 'posts',
 				async lazy() {
 					// Multiple routes in lazy file
-					const { loader, Component } = await import('./pages/posts');
-					return { loader, Component };
+					const { Component } = await import('./pages/posts');
+					return { Component };
 				},
 			},
 			{
 				path: 'reports',
 				async lazy() {
 					// Multiple routes in lazy file
-					const { loader, Component } = await import('./pages/reports');
-					return { loader, Component };
+					const { Component } = await import('./pages/reports');
+					return { Component };
 				},
 			},
 			{
 				path: 'square/free-markets',
 				async lazy() {
 					// Multiple routes in lazy file
-					const { loader, Component } = await import('./pages/square/free-markets');
-					return { loader, Component };
+					const { Component } = await import('./pages/square/free-markets');
+					return { Component };
 				},
 			},
 			{
 				path: 'users',
 				async lazy() {
 					// Multiple routes in lazy file
-					const { loader, Component } = await import('./pages/users');
-					return { loader, Component };
+					const { Component } = await import('./pages/users');
+					return { Component };
 				},
 			},
 			{
-				path: 'pokemons',
+				path: 'churches/:id',
 				async lazy() {
-					// Multiple routes in lazy file
-					const { Component } = await import('./pages/pokemons');
+					// 상세 페이지 컴포넌트 임포트
+					const { Component } = await import('./pages/churches/detail');
 					return { Component };
 				},
 			},

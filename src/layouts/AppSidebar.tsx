@@ -67,11 +67,6 @@ const menus = [
 		icon: LucideTriangleAlert,
 		to: '/reports',
 	},
-	{
-		title: 'Pokemons',
-		icon: LucideMonitorStop,
-		to: '/pokemons',
-	},
 ];
 const AppSidebar = () => {
 	return (
